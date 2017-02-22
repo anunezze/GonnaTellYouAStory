@@ -88,6 +88,9 @@ public class List<E> {
 	}
 
 	//find index of node
+	@requires({"n != null"})
+	@ensures({"$this.size() == $old($this.size())",
+			  "$result == -1 || $result >= 0"})
 	public int indexOf(Node<E> n){
 		int count = 0;
 		Node<E> next = this.n;
