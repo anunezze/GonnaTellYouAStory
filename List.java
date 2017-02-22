@@ -91,7 +91,7 @@ public class List<E> {
 	}
 	
 	//check if it is empty
-	@ensures({$this.size() == $old($this.size())})
+	@ensures({"$this.size() == $old($this.size())"})
 	public boolean isEmpty(){
 		if(n == null)
 			return true;
