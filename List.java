@@ -63,6 +63,7 @@ public class List<E> {
 	}
 
 	// clear the list
+	@ensures({"$this.size() == 0"})
 	public void clear(){
 		this.n = null;
 	}
