@@ -56,7 +56,7 @@ public class List<E> {
 	public boolean contains(Node<E> n){
 		Node<E> next = n;
 		while(next != null){
-			if(next.getData() == n.getData())
+			if(next.equals(n))
 				return true;
 		}
 		return false;
@@ -77,6 +77,14 @@ public class List<E> {
 	
 	//find index of node
 	public int indexOf(Node<E> n){
+		int count = 0;
+		Node<E> next = this.n;
+		while(next.getNext() != null){
+			next = next.getNext();
+			if(next.equals(n))
+				return count;
+		}
+		return -1;
 		
 	}
 	
