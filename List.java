@@ -9,7 +9,7 @@ public class List<E> {
 		n=null;
 	}
 	
-	//parametrised constructor
+	//Parameterized constructor
 	@requires ({ "x !== null" })
 	@ensures ({"$this.getSize() ==1"})
 	public List(Node<E> x){
@@ -94,7 +94,7 @@ public class List<E> {
 
 	}
 	
-	//add elemnt at index
+	//add element at index
 	public void set(int index, E element){
 
 	}
