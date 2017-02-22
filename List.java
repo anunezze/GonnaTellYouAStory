@@ -76,8 +76,8 @@ public class List<E> {
 	}
 	
 	//find index of node
-	public int indexOf(Node n){
-
+	public int indexOf(Node<E> n){
+		
 	}
 	
 	//check if it is empty
