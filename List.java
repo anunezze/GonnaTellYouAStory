@@ -4,12 +4,12 @@ import be.ac.ua.ansymo.adbc.annotations.*;
 public class List<E> {
 
 	private Node<E> n;
-//*************************************Test************
+
 	//default constructor
 	public List(){
 		n=null;
 	}
-	
+
 	//Parameterized constructor
 	@requires ({ "x !== null" })
 	@ensures ({"$this.getSize() ==1"})
@@ -17,7 +17,7 @@ public class List<E> {
 		n=x;
 
 	}
-	
+
 	//add a node at the end of the list
 	public boolean add(Node<E> x){
 		Node<E> next=n;
@@ -42,17 +42,28 @@ public class List<E> {
 			return false;
 		}
 	}
-	
+
 	//add a node at index 
 	public void add(int index, Node<E> z){
+		Node<E> pointer = n;
+		Node<E> temp;
+		int count=0;
+		while (pointer != null){
+			if (index==count){
+				temp=pointer.getNext();
+				pointer.setNext(z);
+				z.setNext(temp);
+			}
+			count++;
+		}
 
 	}
-	
+
 	// clear the list
 	public void clear(){
 		this.n = null;
 	}
-	
+
 	//check if the list contains a node
 	public boolean contains(Node<E> n){
 		Node<E> next = n;
@@ -62,7 +73,7 @@ public class List<E> {
 		}
 		return false;
 	}
-	
+
 	//get node at index
 	public Node<E> get(int index){
 		int count=0;
@@ -75,7 +86,7 @@ public class List<E> {
 		return null;
 
 	}
-	
+
 	//find index of node
 	public int indexOf(Node<E> n){
 		int count = 0;
@@ -86,28 +97,28 @@ public class List<E> {
 				return count;
 		}
 		return -1;
-		
+
 	}
-	
+
 	//check if it is empty
 	public boolean isEmpty(){
 		if(n == null)
 			return true;
 		else 
 			return false;
-		
+
 	}
-	
+
 	//remove a node
 	public void remove(int index){
 
 	}
-	
+
 	//add element at index
 	public void set(int index, E element){
 
 	}
-	
+
 	//size of the list
 	public int size(){
 		int result;
