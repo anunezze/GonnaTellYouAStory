@@ -68,6 +68,8 @@ public class List<E> {
 	}
 
 	//check if the list contains a node
+	@requires({"n != null"})
+	@ensures({"$this.size() == $old($this.size())"})
 	public boolean contains(Node<E> n){
 		Node<E> next = n;
 		while(next != null){
