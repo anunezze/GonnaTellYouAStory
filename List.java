@@ -44,6 +44,8 @@ public class List<E> {
 	}
 
 	//add a node at index 
+	//left to fix the pointer so it does not go
+	//to the end of the list after adding the node
 	public void add(int index, Node<E> z){
 		Node<E> pointer = n;
 		Node<E> temp;
@@ -54,6 +56,7 @@ public class List<E> {
 				pointer.setNext(z);
 				z.setNext(temp);
 			}
+			pointer=pointer.getNext();
 			count++;
 		}
 
@@ -115,8 +118,20 @@ public class List<E> {
 	}
 
 	//remove a node
+	// not done yet
 	public void remove(int index){
-
+		Node<E> pointer = n;
+		int count=0;
+		if (pointer==null){
+			System.out.println("List is empty");
+		}
+		while (pointer != null){
+			if (index==count+1){
+				pointer.setNext(pointer.getNext().getNext());
+			}
+			pointer=pointer.getNext();
+			count++;
+		}
 	}
 
 	//add element at index
