@@ -91,6 +91,9 @@ public class List<E> {
 	}
 
 	//find index of node
+	@requires({"n != null"})
+	@ensures({"$this.size() == $old($this.size())",
+			  "$result == -1 || $result >= 0"})
 	public int indexOf(Node<E> n){
 		int count = 0;
 		Node<E> next = this.n;
@@ -105,7 +108,7 @@ public class List<E> {
 	}
 
 	//check if it is empty
-	@ensures({$this.size() == $old($this.size())})
+	@ensures({"$this.size() == $old($this.size())"})
 	public boolean isEmpty(){
 		if(n == null)
 			return true;
