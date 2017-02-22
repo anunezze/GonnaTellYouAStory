@@ -49,7 +49,7 @@ public class List<E> {
 	
 	// clear the list
 	public void clear(){
-
+		this.n = null;
 	}
 	
 	//check if the list contains a node
