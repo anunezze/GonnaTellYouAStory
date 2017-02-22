@@ -109,6 +109,7 @@ public class List<E> {
 	}
 	
 	//size of the list
+	@ensures({"$result >=0"})
 	public int size(){
 		int result;
 		Node next;
