@@ -95,12 +95,14 @@ public class List<E> {
 			next = next.getNext();
 			if(next.equals(n))
 				return count;
+			count ++;
 		}
 		return -1;
 
 	}
 
 	//check if it is empty
+	@ensures({$this.size() == $old($this.size())})
 	public boolean isEmpty(){
 		if(n == null)
 			return true;
@@ -120,6 +122,7 @@ public class List<E> {
 	}
 
 	//size of the list
+	@ensures({"$result >=0"})
 	public int size(){
 		int result;
 		Node<E> next;
