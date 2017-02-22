@@ -1,9 +1,10 @@
+package soen331_a2;
 import be.ac.ua.ansymo.adbc.annotations.*;
 
 public class List<E> {
 
 	private Node<E> n;
-
+//*************************************Test************
 	//default constructor
 	public List(){
 		n=null;
@@ -111,7 +112,7 @@ public class List<E> {
 	//size of the list
 	public int size(){
 		int result;
-		Node next;
+		Node<E> next;
 		if(n!=null)
 			result = 1;
 		else 
