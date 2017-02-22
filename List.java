@@ -84,7 +84,6 @@ public class List<E> {
 			next = next.getNext();
 			if(next.equals(n))
 				return count;
-			count++;
 		}
 		return -1;
 		
