@@ -12,8 +12,14 @@ public class BList<E> extends List<E>{
 		this.capacity = capacity;
 	}
 	@requires({"$super && $this.size() <= capacity"})
-	public boolean add(Node<E> node){
+	public boolean add (Node<E> node){
+		try{
 		super.add(node);
+		}catch(Exception e)
+		{
+			return false;
+		}
+		return true;
 	}
 	@requires({"$super && this.size() <= capacity"})
 	public void add(int index, Node<E> node){

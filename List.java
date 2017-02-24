@@ -13,6 +13,7 @@ public class List<E> {
 	//Parameterized constructor
 	@requires ({ "x !== null" })
 	@ensures ({"$this.getSize() ==1"})
+	
 	public List(Node<E> x){
 		n=x;
 
@@ -23,7 +24,7 @@ public class List<E> {
 		Node<E> next=n;
 		while(next!=null){
 			next=next.getNext();
-			if (next == null){
+			if (next.getNext() == null){
 				try{
 					next.setNext(x);
 					return true;
@@ -44,17 +45,16 @@ public class List<E> {
 	}
 
 	//add a node at index 
-	//left to fix the pointer so it does not go
-	//to the end of the list after adding the node
 	public void add(int index, Node<E> z){
 		Node<E> pointer = n;
 		Node<E> temp;
-		int count=0;
+		int count=1;
 		while (pointer != null){
 			if (index==count){
 				temp=pointer.getNext();
 				pointer.setNext(z);
 				z.setNext(temp);
+				return;
 			}
 			pointer=pointer.getNext();
 			count++;
@@ -82,7 +82,7 @@ public class List<E> {
 
 	//get node at index
 	public Node<E> get(int index){
-		int count=0;
+		int count=1;
 		Node<E> next=n;
 		while (next != null){
 			next=next.getNext();
@@ -96,9 +96,10 @@ public class List<E> {
 	//find index of node
 	@requires({"n != null"})
 	@ensures({"$this.size() == $old($this.size())",
-			  "$result == -1 || $result >= 0"})
+	"$result == -1 || $result >= 0"})
+	
 	public int indexOf(Node<E> n){
-		int count = 0;
+		int count = 1;
 		Node<E> next = this.n;
 		while(next.getNext() != null){
 			next = next.getNext();
@@ -112,6 +113,7 @@ public class List<E> {
 
 	//check if it is empty
 	@ensures({"$this.size() == $old($this.size())"})
+	
 	public boolean isEmpty(){
 		if(n == null)
 			return true;
@@ -123,27 +125,45 @@ public class List<E> {
 	//remove a node
 	// not done yet
 	public void remove(int index){
-		Node<E> pointer = n;
-		int count=0;
-		if (pointer==null){
-			System.out.println("List is empty");
-		}
-		while (pointer != null){
-			if (index==count+1){
-				pointer.setNext(pointer.getNext().getNext());
+		if (index==1) {
+			Node<E> temp=n;
+			n=n.getNext();
+			temp.setNext(null);
+		} else{
+			Node<E> previous = n;
+			int count =1;
+			while(count<index-1){
+				previous=previous.getNext();
+				count++;
 			}
-			pointer=pointer.getNext();
-			count++;
+			Node<E> current=previous.getNext();
+			previous.setNext(current.getNext());
+			current.setNext(null);
 		}
 	}
 
 	//add element at index
 	public void set(int index, E element){
+		Node<E> pointer = n;
+		int count=1;
+		if (pointer==null){
+			System.out.println("List is empty");
+			return;
+		}
+		while (pointer != null){
+			if (index==count){
+				pointer.setData(element);
+			}
+			pointer=pointer.getNext();
+			count++;
+		}
+
 
 	}
 
 	//size of the list
 	@ensures({"$result >=0"})
+	
 	public int size(){
 		int result;
 		Node<E> next;
