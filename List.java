@@ -11,7 +11,7 @@ public class List<E> {
 	}
 
 	//Parameterized constructor
-	@requires ({ "$x !== null" })
+	@requires ({ "$x != null" })
 	@ensures ({"$this.getSize() ==1"})
 	public List(Node<E> x){
 		n=x;
@@ -19,7 +19,7 @@ public class List<E> {
 	}
 
 	//add a node at the end of the list
-	@requires ({ "x !== null" })
+	@requires ({ "x != null" })
 	@ensures ({"$this.getSize() ==$old($this.getSize())+1","x.getNext()==null"})
 	public boolean add(Node<E> x){
 		Node<E> next=n;
