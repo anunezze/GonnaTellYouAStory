@@ -11,15 +11,16 @@ public class List<E> {
 	}
 
 	//Parameterized constructor
-	@requires ({ "x !== null" })
+	@requires ({ "$x !== null" })
 	@ensures ({"$this.getSize() ==1"})
-	
 	public List(Node<E> x){
 		n=x;
 
 	}
 
 	//add a node at the end of the list
+	@requires ({ "x !== null" })
+	@ensures ({"$this.getSize() ==$old($this.getSize())+1","x.getNext()==null"})
 	public boolean add(Node<E> x){
 		Node<E> next=n;
 		while(next!=null){
@@ -45,6 +46,9 @@ public class List<E> {
 	}
 
 	//add a node at index 
+	@requires ({"$index > -1","z != null"})
+	@ensures ({"$this.getSize() == $old($this.getSize())+1","$index == count"}) //not sure about the second part of the postcondition
+
 	public void add(int index, Node<E> z){
 		Node<E> pointer = n;
 		Node<E> temp;
@@ -63,6 +67,7 @@ public class List<E> {
 	}
 
 	// clear the list
+	@requires ({"true"})
 	@ensures({"$this.size() == 0"})
 	public void clear(){
 		this.n = null;
@@ -81,6 +86,8 @@ public class List<E> {
 	}
 
 	//get node at index
+	@requires ({"$index > -1"})
+	@ensures({"$this.size() == $old($this.size())"})
 	public Node<E> get(int index){
 		int count=1;
 		Node<E> next=n;
@@ -97,7 +104,6 @@ public class List<E> {
 	@requires({"n != null"})
 	@ensures({"$this.size() == $old($this.size())",
 	"$result == -1 || $result >= 0"})
-	
 	public int indexOf(Node<E> n){
 		int count = 1;
 		Node<E> next = this.n;
@@ -112,8 +118,8 @@ public class List<E> {
 	}
 
 	//check if it is empty
+	@requires({"true"})
 	@ensures({"$this.size() == $old($this.size())"})
-	
 	public boolean isEmpty(){
 		if(n == null)
 			return true;
@@ -123,7 +129,8 @@ public class List<E> {
 	}
 
 	//remove a node
-	// not done yet
+	@requires({"n != null","$index > -1"})
+	@ensures({"$old($this.current.getNext()).equals(previous.getNext())"})//not sure
 	public void remove(int index){
 		if (index==1) {
 			Node<E> temp=n;
@@ -143,6 +150,8 @@ public class List<E> {
 	}
 
 	//add element at index
+	@requires({"$index >= 1","element != null"})
+	@ensures({"$this.size() == $old($this.size())"})
 	public void set(int index, E element){
 		Node<E> pointer = n;
 		int count=1;
@@ -162,8 +171,8 @@ public class List<E> {
 	}
 
 	//size of the list
+	@requires({"true"})
 	@ensures({"$result >=0"})
-	
 	public int size(){
 		int result;
 		Node<E> next;
