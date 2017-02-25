@@ -1,4 +1,4 @@
-package soen331_a2;
+//package soen331_a2;
 import be.ac.ua.ansymo.adbc.annotations.*;
 
 public class List<E> {
@@ -11,7 +11,7 @@ public class List<E> {
 	}
 
 	//Parameterized constructor
-	@requires ({ "$x != null" })
+	@requires ({ "x != null" })
 	@ensures ({"$this.getSize() ==1"})
 	public List(Node<E> x){
 		n=x;
