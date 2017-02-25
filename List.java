@@ -22,17 +22,23 @@ public class List<E> {
 	//add a node at the end of the list
 	@requires ({ "x != null" })
 	@ensures ({"$this.size() ==$old($this.size())+1","x.getNext()==null"})
-	public boolean add(Node<E> x){
-		if (n == null){
+	public boolean add(Node<E> node){
+		try{
+			if (n == null){
+				n= node;
+				return true;
+			}
+			Node<E> current = n;
+			while(current.getNext() != null){
+				current=current.getNext();
+			}
+			current.setNext(node);
+			//System.out.println(x.getData());
+			return true;
+		}
+		catch(Exception e){
 			return false;
 		}
-		Node<E> current = n;
-		while(current.getNext() != null){
-			current=current.getNext();
-		}
-		current.setNext(x);
-		System.out.println(x.getData());
-		return true;
 	}
 
 	//add a node at index 
