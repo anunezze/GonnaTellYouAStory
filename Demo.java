@@ -2,11 +2,7 @@
 
 public class Demo {
 	public static void main(String[] args){
-		BList<Integer> bl = new BList<Integer>(3);
-		bl.add(new Node<Integer>(5));
-		int result =bl.size();
-		System.out.println(result);
-	
+			
 		Node <String> n1= new Node<String>("Start");
 		Node <String> n2= new Node<String>("Just");
 		Node <String> n3= new Node<String>("do");
