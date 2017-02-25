@@ -15,6 +15,7 @@ public class List<E> {
 	@ensures ({"$this.getSize() ==1"})
 	public List(Node<E> x){
 		n=x;
+		System.out.println("List created");
 
 	}
 
@@ -22,27 +23,16 @@ public class List<E> {
 	@requires ({ "x != null" })
 	@ensures ({"$this.getSize() ==$old($this.getSize())+1","x.getNext()==null"})
 	public boolean add(Node<E> x){
-		Node<E> next=n;
-		while(next!=null){
-			next=next.getNext();
-			if (next.getNext() == null){
-				try{
-					next.setNext(x);
-					return true;
-				} 
-				catch(Exception e){
-					return false;
-				}
-			}
-
-		}
-		try{
-			next.setNext(x);
-			return true;
-		} 
-		catch(Exception e){
+		if (n == null){
 			return false;
 		}
+		Node<E> current = n;
+		while(current.getNext() != null){
+			current=current.getNext();
+		}
+		current.setNext(x);
+		System.out.println(x.getData());
+		return true;
 	}
 
 	//add a node at index 
@@ -92,9 +82,10 @@ public class List<E> {
 		int count=1;
 		Node<E> next=n;
 		while (next != null){
+			if (count == index) return next;
 			next=next.getNext();
 			count ++;
-			if (count == index) return next;
+			
 		}
 		return null;
 
@@ -107,17 +98,17 @@ public class List<E> {
 	public int indexOf(Node<E> n){
 		int count = 1;
 		Node<E> next = this.n;
-		while(next.getNext() != null){
-			next = next.getNext();
+		while(next != null){
 			if(next.equals(n))
 				return count;
+			next = next.getNext();
 			count ++;
 		}
 		return -1;
 
 	}
 
-	//check if it is empty
+	//check if it is empty 
 	@requires({"true"})
 	@ensures({"$this.size() == $old($this.size())"})
 	public boolean isEmpty(){
