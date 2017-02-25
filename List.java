@@ -12,7 +12,7 @@ public class List<E> {
 
 	//Parameterized constructor
 	@requires ({ "x != null" })
-	@ensures ({"$this.getSize() ==1"})
+	@ensures ({"$this.size() ==1"})
 	public List(Node<E> x){
 		n=x;
 		System.out.println("List created");
@@ -21,7 +21,7 @@ public class List<E> {
 
 	//add a node at the end of the list
 	@requires ({ "x != null" })
-	@ensures ({"$this.getSize() ==$old($this.getSize())+1","x.getNext()==null"})
+	@ensures ({"$this.size() ==$old($this.size())+1","x.getNext()==null"})
 	public boolean add(Node<E> x){
 		if (n == null){
 			return false;
@@ -38,7 +38,6 @@ public class List<E> {
 	//add a node at index 
 	@requires ({"$index > -1","z != null"})
 	@ensures ({"$this.getSize() == $old($this.getSize())+1","$index == count"}) //not sure about the second part of the postcondition
-
 	public void add(int index, Node<E> z){
 		Node<E> pointer = n;
 		Node<E> temp;

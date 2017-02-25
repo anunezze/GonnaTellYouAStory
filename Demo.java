@@ -12,7 +12,8 @@ public class Demo {
 		Node <String> n7= new Node<String>("Lucy");
 		Node <String> n8= new Node<String>("David");
 		
-		List l1 = new List(n1);
+		//List l1 = new List(n1);
+		List<String> l1 = new List<String>();
 		System.out.println("First node in the list: " + n1.getData());
 		
 		l1.add(n2);
