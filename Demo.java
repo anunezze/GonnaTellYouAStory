@@ -17,7 +17,12 @@ public class Demo {
 		l1.add(n2);
 		l1.add(n3);
 		l1.add(n4);
+		l1.add(2,n5);
 		System.out.println(l1.isEmpty());
-		System.out.println(l1.indexOf(n3));
+		System.out.println(l1.indexOf(n5));
+		System.out.println(l1.size());
+		l1.remove(2);
+		System.out.println(l1.size());
+		System.out.println(l1.get(2).getData());
 	}
 }

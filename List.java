@@ -82,9 +82,10 @@ public class List<E> {
 		int count=1;
 		Node<E> next=n;
 		while (next != null){
+			if (count == index) return next;
 			next=next.getNext();
 			count ++;
-			if (count == index) return next;
+			
 		}
 		return null;
 
