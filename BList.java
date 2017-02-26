@@ -21,7 +21,7 @@ public class BList<E> extends List<E>{
 		}
 		return true;
 	}
-	@requires({"$super && this.size() <= capacity"})
+	@requires({"$super && $this.size() <= capacity"})
 	public void add(int index, Node<E> node){
 		super.add(index, node);
 	}

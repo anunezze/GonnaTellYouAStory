@@ -68,19 +68,23 @@ public class List<E> {
 	}
 
 	//check if the list contains a node
-	@requires({"n != null"})
+	@requires({"z != null"})
 	@ensures({"$this.size() == $old($this.size())"})
-	public boolean contains(Node<E> n){
+	public boolean contains(Node<E> z){
 		Node<E> next = n;
 		while(next != null){
-			if(next.getData().equals(n.getData()))
+			if(next.getData().equals(z.getData())){
+				System.out.println("It contains the node");
 				return true;
+			}
+			next=next.getNext();
 		}
+		System.out.println("It does not contain it");
 		return false;
 	}
 
 	//get node at index
-	@requires ({"$index > -1"})
+	@requires ({"index > -1"})
 	@ensures({"$this.size() == $old($this.size())"})
 	public Node<E> get(int index){
 		int count=1;
@@ -89,7 +93,6 @@ public class List<E> {
 			if (count == index) return next;
 			next=next.getNext();
 			count ++;
-			
 		}
 		return null;
 
@@ -185,10 +188,11 @@ public class List<E> {
 	}
 	public void toStringAll(){
 		Node<E> next = this.n;
-		int count = 0;
+		//int count = 0;
 		while(next != null){
-			System.out.println("Node #" + count +": "+ next.getData());
-			count++;
+			//System.out.println("Node #" + count +": "+ next.getData());
+			System.out.print(next.getData()+" --> ");
+			//count++;
 			next =next.getNext();
 		}
 	}

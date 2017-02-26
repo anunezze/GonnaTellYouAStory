@@ -12,7 +12,7 @@ public class Demo {
 		Node <String> n7= new Node<String>("Lucy");
 		Node <String> n8= new Node<String>("David");
 		
-		//List l1 = new List(n1);
+		List<String> l2 = new List<String>(n1);
 		List<String> l1 = new List<String>();
 		System.out.println("First node in the list: " + n1.getData());
 		
@@ -29,7 +29,10 @@ public class Demo {
 		l1.remove(5);
 		l1.toStringAll();
 		System.out.println(l1.size());
-		//System.out.println(l1.get(2).getData());
-		//test again
+		System.out.println(l1.indexOf(n4));
+		System.out.println(l1.get(2).getData());
+		System.out.println(l1.contains(n7));
+		l1.clear();
+		System.out.println(l1.size());
 	}
 }
