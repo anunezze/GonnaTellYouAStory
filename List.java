@@ -42,23 +42,22 @@ public class List<E> {
 	}
 
 	//add a node at index 
-	@requires ({"$index > -1","z != null"})
-	@ensures ({"$this.getSize() == $old($this.getSize())+1","$index == count"}) //not sure about the second part of the postcondition
-	public void add(int index, Node<E> z){
-		Node<E> pointer = n;
-		Node<E> temp;
-		int count=1;
-		while (pointer != null){
-			if (index==count){
-				temp=pointer.getNext();
-				pointer.setNext(z);
-				z.setNext(temp);
-				return;
-			}
-			pointer=pointer.getNext();
-			count++;
+	@requires ({"index > -1","node != null","index < this.size();"})
+	@ensures ({"$this.size() == $old($this.size())+1","this.get(index).equals(node)"}) //not sure about the second part of the postcondition
+	public void add(int index, Node<E> node){
+		if(index == 0){
+			node.setNext(n);
+			this.n=node;
 		}
-
+		else{
+			Node<E> pointer = this.n;
+			Node<E> temp;
+			for(int i =0; i == index -1; i++)
+				pointer = pointer.getNext();
+			temp = pointer.getNext();
+			pointer.setNext(node);
+			node.setNext(temp);			
+		}
 	}
 
 	// clear the list
