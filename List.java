@@ -68,13 +68,12 @@ public class List<E> {
 	}
 
 	//check if the list contains a node
-	//*********method equals() to be verified*****************
 	@requires({"n != null"})
 	@ensures({"$this.size() == $old($this.size())"})
 	public boolean contains(Node<E> n){
 		Node<E> next = n;
 		while(next != null){
-			if(next.equals(n))
+			if(next.getData().equals(n.getData()))
 				return true;
 		}
 		return false;
@@ -97,7 +96,6 @@ public class List<E> {
 	}
 
 	//find index of node
-	//******************method equals() to be verified***************
 	@requires({"n != null"})
 	@ensures({"$this.size() == $old($this.size())",
 	"$result == -1 || $result >= 0"})
@@ -105,7 +103,7 @@ public class List<E> {
 		int count = 0;
 		Node<E> next = this.n;
 		while(next != null){
-			if(next.equals(n))
+			if(next.getData().equals(n.getData()))
 				return count;
 			next = next.getNext();
 			count ++;
