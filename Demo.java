@@ -30,6 +30,6 @@ public class Demo {
 		l1.toStringAll();
 		System.out.println(l1.size());
 		//System.out.println(l1.get(2).getData());
-		//test
+		//test again
 	}
 }
