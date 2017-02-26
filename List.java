@@ -68,6 +68,7 @@ public class List<E> {
 	}
 
 	//check if the list contains a node
+	//*********method equals() to be verified*****************
 	@requires({"n != null"})
 	@ensures({"$this.size() == $old($this.size())"})
 	public boolean contains(Node<E> n){
@@ -96,11 +97,12 @@ public class List<E> {
 	}
 
 	//find index of node
+	//******************method equals() to be verified***************
 	@requires({"n != null"})
 	@ensures({"$this.size() == $old($this.size())",
 	"$result == -1 || $result >= 0"})
 	public int indexOf(Node<E> n){
-		int count = 1;
+		int count = 0;
 		Node<E> next = this.n;
 		while(next != null){
 			if(next.equals(n))
@@ -124,8 +126,8 @@ public class List<E> {
 	}
 
 	//remove a node
-	@requires({"n != null","$index > -1"})
-	@ensures({"$old($this.current.getNext()).equals(previous.getNext())"})//not sure
+	@requires({"$this.isEmpty() == false","index > -1","index < $this.size()"})
+	@ensures({"($old($this.get(index+1))).getData().equals($this.get(index).getData())"})
 	public void remove(int index){
 		if (index==1) {
 			Node<E> temp=n;

@@ -25,8 +25,9 @@ public class Demo {
 		l1.toStringAll();
 		System.out.println(l1.isEmpty());
 		//System.out.println(l1.indexOf(n4));
-		//System.out.println(l1.size());
-		//l1.remove(2);
+		System.out.println(l1.size());
+		l1.remove(5);
+		l1.toStringAll();
 		//System.out.println(l1.size());
 		//System.out.println(l1.get(2).getData());
 	}
