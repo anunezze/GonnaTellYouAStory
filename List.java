@@ -52,8 +52,8 @@ public class List<E> {
 		else{
 			Node<E> pointer = this.n;
 			Node<E> temp;
-			for(int i =0; i == index -1; i++)
-				pointer = pointer.getNext();
+			for(int i =1; i == index -1; i++)
+			pointer = pointer.getNext();
 			temp = pointer.getNext();
 			pointer.setNext(y);
 			y.setNext(temp);			
@@ -87,7 +87,7 @@ public class List<E> {
 	@requires ({"index > -1"})
 	@ensures({"$this.size() == $old($this.size())"})
 	public Node<E> get(int index){
-		int count=1;
+		int count=0;
 		Node<E> next=n;
 		while (next != null){
 			if (count == index) return next;
@@ -128,12 +128,11 @@ public class List<E> {
 
 	//remove a node
 	@requires({"$this.isEmpty() == false","index > -1","index < $this.size()"})
-	@ensures({"($old($this.get(index+1))).getData().equals($this.get(index).getData())"})
+	//@ensures({"($old($this.get(index+1))).getData().equals($this.get(index).getData())"})
 	public void remove(int index){
-		if (index==1) {
+		if (index==0) {
 			Node<E> temp=n;
 			n=n.getNext();
-			temp.setNext(null);
 		} else{
 			Node<E> previous = n;
 			int count =1;
@@ -143,7 +142,6 @@ public class List<E> {
 			}
 			Node<E> current=previous.getNext();
 			previous.setNext(current.getNext());
-			current.setNext(null);
 		}
 	}
 
