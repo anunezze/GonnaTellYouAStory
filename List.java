@@ -43,7 +43,7 @@ public class List<E> {
 
 	//add a node at index 
 	@requires ({"index > -1","y != null","index < $this.size()"})
-	@ensures ({"$this.size() == $old($this.size())+1","$this.get(index).equals(y)"}) //not sure about the second part of the postcondition
+	@ensures ({"$this.size() == $old($this.size())+1","$this.get(index).getData().equals(y.getData())"})
 	public void add(int index, Node<E> y){
 		if(index == 0){
 			y.setNext(n);

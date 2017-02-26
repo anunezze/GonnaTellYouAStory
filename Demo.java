@@ -24,7 +24,7 @@ public class Demo {
 		l1.add(2,n7);
 		l1.toStringAll();
 		System.out.println(l1.isEmpty());
-		//System.out.println(l1.indexOf(n4));
+		System.out.println("Index of " + n4.getData() + ": " + l1.indexOf(n4));
 		System.out.println(l1.size());
 		l1.remove(5);
 		l1.toStringAll();
