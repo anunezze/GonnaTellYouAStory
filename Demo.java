@@ -1,4 +1,4 @@
-//package soen331_a2;
+package a2p;
 
 public class Demo {
 	public static void main(String[] args){
@@ -30,5 +30,6 @@ public class Demo {
 		l1.toStringAll();
 		System.out.println(l1.size());
 		//System.out.println(l1.get(2).getData());
+		//test
 	}
 }

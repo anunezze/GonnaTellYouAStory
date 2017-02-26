@@ -1,4 +1,4 @@
-//package soen331_a2;
+package a2p;
 public class Node<E> {
 	
 	private E data;

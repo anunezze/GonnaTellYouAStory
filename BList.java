@@ -1,4 +1,4 @@
-//package soen331_a2;
+package a2p;
 import be.ac.ua.ansymo.adbc.annotations.*;
 
 @invariant({"$super && $this.size() <= $this.capacity"})
