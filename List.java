@@ -1,6 +1,7 @@
 package a2p;
 import be.ac.ua.ansymo.adbc.annotations.*;
 
+@invariant({"true"})
 public class List<E> {
 
 	private Node<E> n;
@@ -8,6 +9,7 @@ public class List<E> {
 	//default constructor
 	public List(){
 		n=null;
+		System.out.println("List created");
 	}
 
 	//Parameterized constructor
