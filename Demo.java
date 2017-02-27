@@ -28,8 +28,9 @@ public class Demo {
 		System.out.println("Is the list empty? " + l1.isEmpty());
 		System.out.println("Index of: " + n4.getData() + ": " + l1.indexOf(n4));
 		System.out.println("Size of the list is: " + l1.size());
-		System.out.println("Removing node at index 1:");
-		l1.remove(4);
+		int delete = 4;
+		System.out.println("Removing node at index: " + delete);
+		l1.remove(delete);
 		l1.toStringAll();
 		System.out.println();
 		System.out.println("Size of the list is: " + l1.size());

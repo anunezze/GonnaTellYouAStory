@@ -4,7 +4,7 @@ import be.ac.ua.ansymo.adbc.annotations.*;
 @invariant({"$super && $this.size() <= $this.capacity"})
 public class BList<E> extends List<E>{
 	
-	private int capacity=10;
+	private int capacity;
 	
 	@requires({"capacity > 0"})
 	public BList(int capacity){

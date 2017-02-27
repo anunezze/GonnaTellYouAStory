@@ -127,8 +127,8 @@ public class List<E> {
 	}
 
 	//remove a node
-	@requires({"$this.isEmpty() == false","index > -1","index < $this.size()"})
-	@ensures({"($old($this.get(index+1))).getData().equals($this.get(index).getData())"})
+	@requires({"$this.isEmpty() == false","index > -1","index < $this.size()-1"})
+	@ensures({"$old($this.get(index+1)).getData().equals($this.get(index).getData())"})
 	public void remove(int index){
 		if (index==0) {
 			n=n.getNext();
@@ -141,6 +141,10 @@ public class List<E> {
 				count++;
 			}
 			Node<E> current=previous.getNext();
+			/*if(this.size()==index+1){
+				current=null;
+				return;
+			}*/
 			previous.setNext(current.getNext());
 		}
 	}

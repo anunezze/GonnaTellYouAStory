@@ -28,9 +28,11 @@ public class Node<E> {
 	public void setNext(Node<E> next){
 		this.next = next;
 	}
+	
 	public Node<E> getNext(){
 		return next;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
