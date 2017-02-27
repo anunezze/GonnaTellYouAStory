@@ -43,10 +43,12 @@ public class Demo {
 		
 		//Testing BList
 		System.out.println("");
-		System.out.println("*********** BList *************");
-		System.out.println("Testing BList");
+		System.out.println("*********** Testing BList *************");
 		BList<String> b1 = new BList<String>(5);
+		BList<String> b2 = new BList<String>(n1,5);
 		b1.add(n2);
+		
+		b2.add(n4);
 		/*b1.add(n3);
 		b1.add(n4);
 		b1.add(n5);

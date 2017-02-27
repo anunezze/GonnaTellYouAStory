@@ -1,7 +1,7 @@
 package a2p;
 import be.ac.ua.ansymo.adbc.annotations.*;
 
-@invariant({"$super && $this.size() <= $this.capacity"})
+@invariant({"$super && $this.size() <= capacity"})
 public class BList<E> extends List<E>{
 	
 	private int capacity;
@@ -11,6 +11,13 @@ public class BList<E> extends List<E>{
 		super();
 		this.capacity = capacity;
 	}
+	
+	@requires({"capacity > 0"})
+	public BList(Node<E> x,int capacity){
+		super();
+		this.capacity = capacity;
+	}
+	
 	@requires({"capacity > 0","$super && $this.size() <= $this.capacity"})
 	public boolean add (Node<E> node){
 		try{
