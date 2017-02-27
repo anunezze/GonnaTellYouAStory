@@ -18,6 +18,9 @@ public class Demo {
 		Node <String> s5= new Node<String>("Donald");
 		Node <String> s6= new Node<String>("Barack");
 		Node <String> s7= new Node<String>("Leli");
+		Node <String> s8= new Node<String>("Ben");
+		Node <String> s9= new Node<String>("John");
+		Node <String> s10= new Node<String>("Andres");
 		
 		List<String> l1 = new List<String>();
 		
@@ -51,30 +54,34 @@ public class Demo {
 		//Testing BList
 		System.out.println("");
 		System.out.println("*********** Testing BList *************");
-		BList<String> b1 = new BList<String>(9,s1);
+		BList<String> b1 = new BList<String>(s1, 10);
 		b1.add(s2);
 		b1.add(s3);
 		b1.add(s4);
 		System.out.println("Size of the list: " + b1.size());
-		/*b1.add(n4);
-		b1.add(n5);
-		b1.add(n6);
-		b1.add(2,n7);
+		b1.add(s5);
+		b1.add(s6);
+		b1.add(s7);
+		b1.add(2,s8);
+		b1.add(2,s9);
+		b1.add(2,s10);
 		b1.toStringAll();
+		System.out.println();
 		System.out.println("Checking if the list is empty: " + b1.isEmpty());
-		System.out.println("Index of " + n4.getData() + ": " + b1.indexOf(n4));
+		System.out.println("Index of " + s4.getData() + ": " + b1.indexOf(s4));
 		System.out.println("Size of list is: " + b1.size());
 		System.out.println("Removing node at index 5:");
 		b1.remove(5);
-		System.out.println("Printing out the list:");
+		System.out.println();
 		b1.toStringAll();
+		System.out.println();
 		System.out.println("Size of the list: " + b1.size());
-		System.out.println("Index of node n4: "+ b1.indexOf(n4));
-		System.out.println("Get the data at node n2" + b1.get(2).getData());
-		System.out.println("Checking if the list contains node n7: "+b1.contains(n7));
+		System.out.println("Index of node n4: "+ b1.indexOf(s4));
+		System.out.println("Get the data at node n2: " + b1.get(2).getData());
+		System.out.println("Checking if the list contains node n7: "+b1.contains(s7));
 		System.out.println("Clearing the list...");
 		b1.clear();
 		System.out.println("Size of BList after clear is: " + b1.size());
-		*/
+		
 	}
 }

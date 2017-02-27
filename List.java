@@ -3,7 +3,6 @@ import be.ac.ua.ansymo.adbc.annotations.*;
 
 @invariant({"$this.size() >= 0"})
 public class List<E> {
-
 	private Node<E> n;
 
 	//default constructor
@@ -176,18 +175,18 @@ public class List<E> {
 	@requires({"true"})
 	@ensures({"$result >=0"})
 	public int size(){
-		int result;
+		int out;
 		Node<E> next;
 		if(n!=null)
-			result = 1;
+			out = 1;
 		else 
 			return 0;
 		next = n.getNext();
 		while(next != null){
-			result++;
+			out++;
 			next = next.getNext();
 		}
-		return result;
+		return out;
 
 	}
 	public void toStringAll(){
