@@ -1,27 +1,30 @@
 package a2p;
 import be.ac.ua.ansymo.adbc.annotations.*;
 
-@invariant({"$super && $this.size() <= capacity"})
+//@invariant({"$super && $this.size() <= $this.capacity"})
 public class BList<E> extends List<E>{
 	
 	private int capacity;
 	
 	@requires({"capacity > 0"})
+	@ensures({"$super"})
 	public BList(int capacity){
 		super();
 		this.capacity = capacity;
 	}
 	
 	@requires({"capacity > 0"})
-	public BList(Node<E> x,int capacity){
-		super();
+	@ensures  ({"$super"})
+	public BList(int capacity,Node<E> x){
+		super(x);
 		this.capacity = capacity;
 	}
 	
-	@requires({"capacity > 0","$super && $this.size() <= $this.capacity"})
-	public boolean add (Node<E> node){
+	//@requires({"$super && $this.size() <= $this.capacity"})
+	@ensures  ({"$super"})
+	public boolean add (Node<E> x){
 		try{
-		super.add(node);
+		super.add(x);
 		}catch(Exception e)
 		{
 			return false;
@@ -29,9 +32,10 @@ public class BList<E> extends List<E>{
 		return true;
 	}
 	
-	@requires({"capacity > 0","$super && $this.size() <= $this.capacity"})
-	public void add(int index, Node<E> node){
-		super.add(index, node);
+	//@requires({"$super && $this.size() <= $this.capacity"})
+	@ensures  ({"$super"})
+	public void add(int index, Node<E> y){
+		super.add(index, y);
 	}
 
 }

@@ -1,7 +1,7 @@
 package a2p;
 import be.ac.ua.ansymo.adbc.annotations.*;
 
-@invariant({"true"})
+@invariant({"$this.size() >= 0"})
 public class List<E> {
 
 	private Node<E> n;

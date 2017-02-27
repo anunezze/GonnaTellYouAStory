@@ -10,7 +10,14 @@ public class Demo {
 		Node <String> n5= new Node<String>("Gousami");
 		Node <String> n6= new Node<String>("Dean");
 		Node <String> n7= new Node<String>("Mike");
-		Node <String> n8= new Node<String>("David");
+		
+		Node <String> s1= new Node<String>("Edi");
+		Node <String> s2= new Node<String>("Sala");
+		Node <String> s3= new Node<String>("Eri");
+		Node <String> s4= new Node<String>("Luli");
+		Node <String> s5= new Node<String>("Donald");
+		Node <String> s6= new Node<String>("Barack");
+		Node <String> s7= new Node<String>("Leli");
 		
 		List<String> l1 = new List<String>();
 		
@@ -44,13 +51,12 @@ public class Demo {
 		//Testing BList
 		System.out.println("");
 		System.out.println("*********** Testing BList *************");
-		BList<String> b1 = new BList<String>(5);
-		BList<String> b2 = new BList<String>(n1,5);
-		b1.add(n2);
-		
-		b2.add(n4);
-		/*b1.add(n3);
-		b1.add(n4);
+		BList<String> b1 = new BList<String>(9,s1);
+		b1.add(s2);
+		b1.add(s3);
+		b1.add(s4);
+		System.out.println("Size of the list: " + b1.size());
+		/*b1.add(n4);
 		b1.add(n5);
 		b1.add(n6);
 		b1.add(2,n7);
