@@ -1,3 +1,10 @@
+/*
+ * Programming assignment 1, SOEN 331 - U, 
+ * Dr. Constantinos Constantinides, Concordia University
+ * Eglen  Cecaj 		ID: 26746047
+ * Andres Nunez			ID: 27194331
+ */
+
 package a2p;
 import be.ac.ua.ansymo.adbc.annotations.*;
 
@@ -75,7 +82,6 @@ public class List<E> {
 		Node<E> next = n;
 		while(next != null){
 			if(next.getData().equals(z.getData())){
-				System.out.println("It contains the node");
 				return true;
 			}
 			next=next.getNext();

@@ -1,5 +1,11 @@
-package a2p;
+/*
+ * Programming assignment 1, SOEN 331 - U, 
+ * Dr. Constantinos Constantinides, Concordia University
+ * Eglen  Cecaj 		ID: 26746047
+ * Andres Nunez			ID: 27194331
+ */
 
+package a2p;
 import be.ac.ua.ansymo.adbc.annotations.ensures;
 import be.ac.ua.ansymo.adbc.annotations.requires;
 

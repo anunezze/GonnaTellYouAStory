@@ -1,3 +1,10 @@
+/*
+ * Programming assignment 1, SOEN 331 - U, 
+ * Dr. Constantinos Constantinides, Concordia University
+ * Eglen  Cecaj 		ID: 26746047
+ * Andres Nunez			ID: 27194331
+ */
+
 package a2p;
 import be.ac.ua.ansymo.adbc.annotations.*;
 
@@ -35,7 +42,6 @@ public class BList<E> extends List<E>{
 	@ensures  ({"$super"})
 	public void add(int index, Node<E> y){
 		super.add(index, y);
-		System.out.println(this.capacity);
 	}
 	
 

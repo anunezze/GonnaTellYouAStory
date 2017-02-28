@@ -1,3 +1,10 @@
+/*
+ * Programming assignment 1, SOEN 331 - U, 
+ * Dr. Constantinos Constantinides, Concordia University
+ * Eglen  Cecaj 		ID: 26746047
+ * Andres Nunez			ID: 27194331
+ */
+
 package a2p;
 
 public class Demo {
@@ -46,10 +53,10 @@ public class Demo {
 		System.out.println("Size of the list is: " + l1.size());
 		System.out.println();
 		System.out.println("Index of n4: " + l1.indexOf(n4));
-		System.out.println(l1.get(2).getData());
-		System.out.println(l1.contains(n7));
+		System.out.println("Getting data at index 2: " + l1.get(2).getData());
+		System.out.println("Checking if the list contains node n7: " + l1.contains(n7));
 		l1.clear();
-		System.out.println(l1.size());
+		System.out.println("Size of the list after clear: " + l1.size());
 		
 		//Testing BList
 		System.out.println("");
